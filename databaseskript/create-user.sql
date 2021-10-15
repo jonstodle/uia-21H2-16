@@ -1,26 +1,34 @@
-create database if not exists MytestDB;
-use MytestDB;
+create database if not exists amv;
+use amv;
+
 create table if not EXISTS user
 (
-    User_id        integer UNIQUE auto_increment,
-    User_firstName varchar(255),
-    User_lastName  varchar(255),
-    User_Email     varchar(255),
-    User_password  varchar(255),
-    User_dob varchar(255),
-    CONSTRAINT U_User_ID_PK PRIMARY KEY (User_id)
+    id       integer UNIQUE auto_increment primary key,
+    name     varchar(255),
+    email    varchar(255),
+    password varchar(255)
+);
+create table if not exists user_roles
+(
+    email varchar(255) not null,
+    name  varchar(255) not null,
+    primary key (email, name)
 );
 
 
-#inserter en record av en bruker inn i databasen otra.
-insert into user (User_firstName,
-                       User_lastName,
-                       User_Email,
-                       User_password,
-                       User_dob)
-values (
-        'trym',
-        'Staurheim',
-        'trym@example.com',
-        '12345',
-        '1993-25-09');
+insert into user (name, email, password)
+values ('Adel', 'adel@example.com', '12345'),
+       ('Ahmad', 'ahmad@example.com', '12345'),
+       ('Jon', 'jon@example.com', '12345'),
+       ('Khalel', 'khalel@example.com', '12345'),
+       ('Kristoffer', 'kristoffer@example.com', '12345'),
+       ('Ritwaan', 'ritwaan@example.com', '12345'),
+       ('Wad', 'wad@example.com', '12345');
+insert into user_roles (email, name)
+values ('adel@example.com', 'admin'),
+       ('ahmad@example.com', 'admin'),
+       ('jon@example.com', 'admin'),
+       ('khalel@example.com', 'admin'),
+       ('kristoffer@example.com', 'admin'),
+       ('ritwaan@example.com', 'admin'),
+       ('wad@example.com', 'admin');
