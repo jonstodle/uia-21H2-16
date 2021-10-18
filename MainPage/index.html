@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Quick main page test in html</title>
+    <link rel="icon" href="https://images.squarespace-cdn.com/content/v1/5bcf4baf90f904e66e8eb8bf/1583509024709-PRYSR5NHFEC4JRWTTZDA/favicon.ico?format=100w" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <form>
+                <input type="text" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="#">Test1</a></li>
+            <li><a href="#">Test2</a></li>
+        </ul>
+        <div>
+            <img src="//images.squarespace-cdn.com/content/v1/5bcf4baf90f904e66e8eb8bf/1571139220977-8Y75FILX6E39M4ZH8REW/Logo-eng-web-blue.png?format=1500w" alt="Logo " onClick="#">Om oss</img>
+        </div>
+    </div>
+
+    <script>
+        /*
+        Bare en test for å skjule/vise utstyr når man velger kategorier (kom gjerne med bedre forslag)
+        Når denne kjører sjekker den elementet med id="items",
+        hvis den vises,(display = "block") vil den skjule den ved å sette display = "none".
+        */
+        function getDivEquipment() {
+            var items = document.getElementById('items');
+            if(items.style.display == "block") {
+                items.style.display = "none"
+            }
+            else{
+                items.style.display = "block";
+            }
+        }
+    </script>
+
+    <div class="equipment">
+        <ul>
+            <li><img id="diverse" src="img/divUtstyr.jpg" onclick="getDivEquipment()" alt="Bilde (diverse utstyr)"></li>
+            <li><img id="spiker" src="img/spikerPist.jpg" onclick="getDivEquipment()" alt="Bilde (Spikerpist. o.l.)"></li>
+            <li>Utstyr for vedhogst</li>
+            <li>Tilhengere</li>
+            <li>Større utstyr</li>
+        </ul>
+    </div>
+
+    <div id="items" style="display: none">
+        <h1>eventually items</h1>
+    </div>
+</body>
+
+</html>
