@@ -1,7 +1,7 @@
 -- auto-generated definition
 create table equipments
 (
-    equipmentID   int                       not null
+    equipmentID   int                      not null
         primary key,
     equipmentName varchar(255)              null,
     kind          varchar(255)              null,
