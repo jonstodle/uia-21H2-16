@@ -1,0 +1,102 @@
+body{
+
+}
+h1 {
+text-align:center;
+padding: 20px ;
+
+font-size: 40px;
+}
+#back input{
+text-align:center;
+background-color: rgb(196, 195, 184);
+position:fixed ;
+left: 2%;
+top: 3%;
+height: 40px;
+width: 17%;
+border-color: rgb(211, 211, 209);
+}
+
+
+.alll {
+   text-align: center;
+   margin: 10%;
+   padding-top: 15%;
+
+   }
+   .manU{
+   float: right;
+   background-color: #f8b912;
+   border-color: #f8b912;
+   width: 25%;
+   height: 60px;
+   font-size: 14px;
+   }
+   .zz{
+   margin: auto;
+   background-color: #f8b912;
+   border-color: #f8b912;
+   width: 30%;
+   height: 60px;
+   font-size: 14px;
+
+
+   }
+   .repo{
+   position:static;
+      float: left;
+      background-color: #f8b912;
+      border-color: #f8b912;
+      width: 25%;
+      height: 60px;
+      font-size: 14px;
+      }
+
+      .sett{
+         text-align:center;
+         background-color: rgb(196, 195, 184);
+         position:fixed ;
+         right: 2%;
+         top: 3%;
+         height: 40px;
+         width: 17%;
+         border-color: rgb(211, 211, 209);
+
+      }
+
+@media screen and (max-width:400px){
+   .sett{
+      width: 18%;
+   }
+#back input{
+width: 18%;
+
+}
+   h1{
+font-size: 30px;
+padding: 50px ;
+
+
+   }
+
+a{
+text-decoration: none;
+
+}
+.alll{
+   margin: auto
+}
+
+ .alll button{
+
+text-align: center;
+float: none;
+margin-top: 4%;
+display: block;
+width: 100%;
+color: black;
+background-color:#f8b912;}
+
+
+}
