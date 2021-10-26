@@ -1,0 +1,29 @@
+create table Users (
+
+                       userID int  not null
+                           primary key,
+                       userName varchar (255) null,
+                       UserEmail varchar (255) null,
+                       UserAddress varchar (255) null,
+                       UserPhone int       null
+);
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('1','Tom Erichsen','tom@erichsen.no','Stavangergata 12','40095949');
+);
+
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('2','Ritwaan Hashi','Rmhashi@uia.no','Kjos ringvei 3b','40053436');
+
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('3','Henrik Espeland','Henrik.espeland@yahoo.com','lundveien 20','98987622');
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('4','Ola Nordmann','Ola@gmail.com','henrik wergelandsgate 2','94939320');
+
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('5','Abdi osman','Abdi17@hotmail.com','Sømsveien 23','47484950');
+
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('6','Eivind Hellstrøm','Eivind@hellstrøm.no','stovnergata 22','47554999');
+
+insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
+VALUES ('7','','Eivind@hellstrøm.no','stovnergata 22','47554999');
