@@ -1,0 +1,27 @@
+.bg{
+    background-color: #F0B324;
+}
+
+nav{
+    margin-bottom: 60px;
+}
+
+ul{
+    list-style: none;
+    text-align: center;
+    padding: 0px;
+}
+
+.users{
+    padding: 10px;
+}
+
+.leftside{
+    margin: 5px;
+}
+
+#items{
+    text-align: center;
+}
+
+
