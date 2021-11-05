@@ -1,4 +1,5 @@
--- auto-generated definition
+create database mytestDB;
+use database;
 create table equipments
 (
     equipmentID   int                      not null

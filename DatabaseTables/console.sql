@@ -1,3 +1,4 @@
+
 create table Users (
 
                        userID int  not null
@@ -9,7 +10,6 @@ create table Users (
 );
 insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
 VALUES ('1','Tom Erichsen','tom@erichsen.no','Stavangergata 12','40095949');
-);
 
 insert into USERS (USERID,USERNAME,UserEmail,UserAddress, USERPHONE)
 VALUES ('2','Ritwaan Hashi','Rmhashi@uia.no','Kjos ringvei 3b','40053436');

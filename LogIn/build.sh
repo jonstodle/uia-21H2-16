@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 
 # Kill running instance of tomcat
 docker kill tomcat

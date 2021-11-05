@@ -1,5 +1,6 @@
-drop table Reservations;
+create database mytestDB;
 use mytestDB ;
+drop table Reservations;
 
 create table Reservations
 (
@@ -18,79 +19,79 @@ create table Reservations
         foreign key (equipmentID) references equipments (equipmentID)
 );
 
-insert into Reservations  (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID )
-values  ('1','1','5','gratis + papir','1');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values  ('1','1','5','gratis + papir','1','2021-10-18');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('2','4','1','kr,80 + papir','2');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('2','4','1','kr,80 + papir','2','2021-10-28');
 
-insert into Reservations (reservationid, reservationdays, userid, reservationprice, equipmentID )
-values ('3','5','3','kr,100','3') ;
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('3','5','3','kr,100','3','2021-10-05') ;
 
-insert into Reservations  (reservationid, reservationdays, userid, reservationprice, equipmentID )
-values ('4','10','2','kr,200','4');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('4','10','2','kr,200','4','2021-10-22');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('5','7','5','kr,140','6');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('5','7','5','kr,140','6','2021-10-18');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('6','1','2','gratis','7');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('6','1','2','gratis','7','2021-10-19');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('7','10','6','kr,200','8');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('7','10','6','kr,200','8','2021-10-11');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('8','9','3','kr,180','11');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('8','9','3','kr,180','11','2021-10-11');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('9','1','4','gratis','7');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('9','1','4','gratis','7','2021-10-23');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('10','4','2','kr,80','21');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('10','4','2','kr,80','21','2021-10-15');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('11','23','1','kr,460','11');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('11','23','1','kr,460','11','2021-10-29');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('12','27','5','kr,540','9');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('12','27','5','kr,540','9','2021-10-19');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('13','1','3','gratis','17');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('13','1','3','gratis','17','2021-10-12');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('14','1','1','gratis','11');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('14','1','1','gratis','11','2021-10-18');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('15','4','2','kr.200','22');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('15','4','2','kr.200','22','2021-10-26');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('16','3','6','kr,150','15');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('16','3','6','kr,150','15','2021-10-31');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('17','9','3','kr,450','24');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('17','9','3','kr,450','24','2021-10-12');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('18','3','2','kr,150','20');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('18','3','2','kr,150','20','2021-10-07');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('19','5','5','kr,250','12');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('19','5','5','kr,250','12','2021-10-18');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('20','1','4','100','7');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('20','1','4','100','7','2021-10-13');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('21','6','3','kr,300','9');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('21','6','3','kr,300','9','2021-10-08');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('22','','1','Egne regler','3');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('22','','1','Egne regler','3','2021-10-14');
 
-insert into Reservations (ReservationID, ReservationDays, userID, ReservationPrice, equipmentID )
-values ('23','','5','Egne regler','6');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('23','','5','Egne regler','6','2021-10-14');
 
-insert into Reservations (reservationid, reservationdays, userid, reservationprice, equipmentID)
-values ('24','','4','Egne regler','8');
+insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
+values ('24','','4','Egne regler','8','2021-10-18' );
 
-# Innsetting av dato
+# Innsetting av date
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-29' WHERE t.ReservationID = 11;
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-18' WHERE t.ReservationID = 19;
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-18' WHERE t.ReservationID = 24;
@@ -115,19 +116,5 @@ UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-18' WHERE t.Reserv
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-31' WHERE t.ReservationID = 16;
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-19' WHERE t.ReservationID = 6;
 UPDATE mytestdb.Reservations t SET t.rentStartDate = '2021-10-18' WHERE t.ReservationID = 5;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
