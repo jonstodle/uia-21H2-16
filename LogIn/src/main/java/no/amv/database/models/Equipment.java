@@ -7,15 +7,23 @@ import java.util.ArrayList;
 public class Equipment extends ModelBase {
     int id;
     String name;
-    String kind;
+    int category;
     int price;
     int rentStartDay;
     String comment;
 
-    public Equipment(int id, String name, String kind, int price, int rentStartDay, String comment) {
+    String[] categoryNames = new String[]{
+            "diverse «småutstyr»",
+            "Spikerpistoler o.l",
+            "Utstyr for vedhogst:",
+            "Tilhengere",
+            "Større utstyr"
+    };
+
+    public Equipment(int id, String name, int category, int price, int rentStartDay, String comment) {
         this.id = id;
         this.name = name;
-        this.kind = kind;
+        this.category = category;
         this.price = price;
         this.rentStartDay = rentStartDay;
         this.comment = comment;
@@ -37,12 +45,16 @@ public class Equipment extends ModelBase {
         this.name = name;
     }
 
-    public String getKind() {
-        return kind;
+    public int getCategory() {
+        return category;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public String getCategoryName() {
+        return categoryNames[category - 1];
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     public int getPrice() {
@@ -77,7 +89,7 @@ public class Equipment extends ModelBase {
                 (stmt) -> {
                     stmt.setInt(1, this.id);
                     stmt.setString(2, this.name);
-                    stmt.setString(3, this.kind);
+                    stmt.setInt(3, this.category);
                     stmt.setInt(4, this.price);
                     stmt.setInt(5, this.rentStartDay);
                     stmt.setString(6, this.comment);
@@ -107,7 +119,7 @@ public class Equipment extends ModelBase {
         return new Equipment(
                 rs.getInt(1),
                 rs.getString(2),
-                rs.getString(3),
+                rs.getInt(3),
                 rs.getInt(4),
                 rs.getInt(5),
                 rs.getString(6)

@@ -21,11 +21,11 @@ create table if not exists user_roles
 create table if not exists equipment
 (
     id             int unique auto_increment primary key,
-    name           text         not null,
-    kind           varchar(255) not null,
-    price          int          not null,
-    rent_start_day int          not null,
-    comment        text         null
+    name           text not null,
+    category       int  not null,
+    price          int  not null,
+    rent_start_day int  not null,
+    comment        text null
 );
 
 create table if not exists reservation

@@ -21,7 +21,7 @@
             <%=e.getName()%>
         </td>
         <td>
-            <%=e.getKind()%>
+            <%=e.getCategoryName()%>
         </td>
         <td>
             <%if (e.getPrice() < 0) {%>
