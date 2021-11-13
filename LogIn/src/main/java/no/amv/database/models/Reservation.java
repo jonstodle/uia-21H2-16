@@ -21,10 +21,10 @@ public class Reservation extends ModelBase {
     }
 
     public void save() {
-        execute("""
-                        replace into reservations (id, user_id, equipment_id, start_date, returned_date)
-                        values (?, ?, ?, ?, ?)
-                        """,
+        execute(String.join(" ",
+                        "replace into reservations (id, user_id, equipment_id, start_date, returned_date)",
+                        "values (?, ?, ?, ?, ?)"
+                ),
                 (stmt) -> {
                     stmt.setInt(1, this.id);
                     stmt.setInt(2, this.userId);
@@ -35,30 +35,30 @@ public class Reservation extends ModelBase {
     }
 
     public static ArrayList<Reservation> getList() {
-        return select("""
-                        select *
-                        from reservations
-                        """,
+        return select(String.join(" ",
+                        "select *",
+                        "from reservations"
+                ),
                 Reservation::from);
     }
 
     public static Reservation getById(int id) {
-        return get("""
-                        select *
-                        from reservations
-                        where id = ?
-                        limit 1
-                        """,
+        return get(String.join(" ",
+                        "select *",
+                        "from reservations",
+                        "where id = ?",
+                        "limit 1"
+                ),
                 (stmt) -> stmt.setInt(1, id),
                 Reservation::from);
     }
 
     public static ArrayList<Reservation> getByUserId(int id) {
-        return select("""
-                        select *
-                        from reservations
-                        where user_id = ?
-                        """,
+        return select(String.join(" ",
+                        "select *",
+                        "from reservations",
+                        "where user_id = ?"
+                ),
                 (stmt) -> stmt.setInt(1, id),
                 Reservation::from);
     }

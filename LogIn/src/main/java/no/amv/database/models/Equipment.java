@@ -70,10 +70,10 @@ public class Equipment extends ModelBase {
     }
 
     public void save() {
-        execute("""
-                        replace into equipment (id, name, kind, price, rent_start_day)
-                        values (?, ?, ?, ?, ?)
-                        """,
+        execute(String.join(" ",
+                        "replace into equipment (id, name, kind, price, rent_start_day)",
+                        "values (?, ?, ?, ?, ?)"
+                ),
                 (stmt) -> {
                     stmt.setInt(1, this.id);
                     stmt.setString(2, this.name);
@@ -85,20 +85,20 @@ public class Equipment extends ModelBase {
     }
 
     public static ArrayList<Equipment> getList() {
-        return select("""
-                        select *
-                        from equipment
-                        """,
+        return select(String.join(" ",
+                        "select *",
+                        "from equipment"
+                ),
                 Equipment::from);
     }
 
     public static Equipment getById(int id) {
-        return get("""
-                        select *
-                        from equipment
-                        where id = ?
-                        limit 1
-                        """,
+        return get(String.join(" ",
+                        "select *",
+                        "from equipment",
+                        "where id = ?",
+                        "limit 1"
+                ),
                 (stmt) -> stmt.setInt(1, id),
                 Equipment::from);
     }

@@ -14,11 +14,11 @@ public class UserRole extends ModelBase {
     }
 
     public static ArrayList<UserRole> getByUserId(int id) {
-        return select("""
-                        select *
-                        from user_roles
-                        where user_id = ?
-                        """,
+        return select(String.join(" ",
+                        "select *",
+                        "from user_roles",
+                        "where user_id = ?"
+                ),
                 (stmt) -> stmt.setInt(1, id),
                 UserRole::from);
     }

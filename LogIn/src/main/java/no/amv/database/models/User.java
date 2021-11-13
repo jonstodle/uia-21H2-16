@@ -18,10 +18,10 @@ public class User extends ModelBase {
     }
 
     public void save() {
-        execute("""
-                        replace into users (id, name, email, password)
-                        values (?, ?, ?, ?)
-                        """,
+        execute(String.join(" ",
+                        "replace into users (id, name, email, password)",
+                        "values (?, ?, ?, ?)"
+                ),
                 (stmt) -> {
                     stmt.setInt(1, this.id);
                     stmt.setString(2, this.name);
@@ -31,20 +31,20 @@ public class User extends ModelBase {
     }
 
     public static ArrayList<User> getList() {
-        return select("""
-                        select *
-                        from users
-                        """,
+        return select(String.join(" ",
+                        "select *",
+                        "from users"
+                ),
                 User::from);
     }
 
     public static User getById(int id) {
-        return get("""
-                        select *
-                        from users
-                        where id = ?
-                        limit 1
-                        """,
+        return get(String.join(" ",
+                        "select *",
+                        "from users",
+                        "where id = ?",
+                        "limit 1"
+                ),
                 (stmt) -> stmt.setInt(1, id),
                 User::from);
     }
