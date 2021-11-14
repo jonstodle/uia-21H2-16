@@ -86,19 +86,7 @@ public class Equipment extends ModelBase {
     }
 
     public void save() {
-        if (this.id == 0) {
-            execute(String.join(" ",
-                            "insert into equipment (name, category, price, rent_start_day, comment)",
-                            "values (?, ?, ?, ?, ?)"
-                    ),
-                    (stmt) -> {
-                        stmt.setString(1, this.name);
-                        stmt.setInt(2, this.category);
-                        stmt.setInt(3, this.price);
-                        stmt.setInt(4, this.rentStartDay);
-                        stmt.setString(5, this.comment);
-                    });
-        } else {
+        if (this.id > 0) {
             execute(String.join(" ",
                             "update equipment",
                             "set",
@@ -116,6 +104,18 @@ public class Equipment extends ModelBase {
                         stmt.setInt(4, this.rentStartDay);
                         stmt.setString(5, this.comment);
                         stmt.setInt(6, this.id);
+                    });
+        } else {
+            execute(String.join(" ",
+                            "insert into equipment (name, category, price, rent_start_day, comment)",
+                            "values (?, ?, ?, ?, ?)"
+                    ),
+                    (stmt) -> {
+                        stmt.setString(1, this.name);
+                        stmt.setInt(2, this.category);
+                        stmt.setInt(3, this.price);
+                        stmt.setInt(4, this.rentStartDay);
+                        stmt.setString(5, this.comment);
                     });
         }
     }
