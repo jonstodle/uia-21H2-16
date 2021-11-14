@@ -32,6 +32,7 @@
             <th>Price</th>
             <th>Rent starts on day</th>
             <th>Comment</th>
+            <th>Actions</th>
         </tr>
         <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
         <tr>
@@ -53,6 +54,11 @@
             </td>
             <td>
                 <%=e.getComment() == null ? "" : e.getComment()%>
+            </td>
+            <td>
+                <a href="/amv/reservations?new=<%=e.getId()%>" class="button">
+                    Reserve
+                </a>
             </td>
         </tr>
         <%}%>

@@ -21,17 +21,30 @@ public class Reservation extends ModelBase {
     }
 
     public void save() {
+        if (this.id > 0) {
+            // Not needed?
+        } else {
+            execute(String.join(" ",
+                            "insert into reservations (user_id, equipment_id, start_date, returned_date)",
+                            "values (?, ?, ?, ?)"
+                    ),
+                    (stmt) -> {
+                        stmt.setInt(1, this.userId);
+                        stmt.setInt(2, this.equipmentId);
+                        stmt.setDate(3, this.startDate);
+                        stmt.setDate(4, this.returnedDate);
+                    });
+        }
+    }
+
+    public void returnEquipment() {
         execute(String.join(" ",
-                        "replace into reservations (id, user_id, equipment_id, start_date, returned_date)",
-                        "values (?, ?, ?, ?, ?)"
+                        "update reservations",
+                        "set",
+                        "    returned_date = now()",
+                        "where id = ?"
                 ),
-                (stmt) -> {
-                    stmt.setInt(1, this.id);
-                    stmt.setInt(2, this.userId);
-                    stmt.setInt(3, this.equipmentId);
-                    stmt.setDate(4, this.startDate);
-                    stmt.setDate(5, this.returnedDate);
-                });
+                (stmt) -> stmt.setInt(1, this.id));
     }
 
     public static ArrayList<Reservation> getList() {
