@@ -12,7 +12,7 @@ public class Equipment extends ModelBase {
     int rentStartDay;
     String comment;
 
-    String[] categoryNames = new String[]{
+    static String[] categoryNames = new String[]{
             "diverse «småutstyr»",
             "Spikerpistoler o.l",
             "Utstyr for vedhogst:",
@@ -49,10 +49,6 @@ public class Equipment extends ModelBase {
         return category;
     }
 
-    public String getCategoryName() {
-        return categoryNames[category - 1];
-    }
-
     public void setCategory(int category) {
         this.category = category;
     }
@@ -79,6 +75,14 @@ public class Equipment extends ModelBase {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public static String[] getCategoryNames() {
+        return categoryNames;
+    }
+
+    public String getCategoryName() {
+        return categoryNames[category - 1];
     }
 
     public void save() {
