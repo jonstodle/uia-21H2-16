@@ -86,24 +86,66 @@ public class Equipment extends ModelBase {
     }
 
     public void save() {
+        if (this.id == 0) {
+            execute(String.join(" ",
+                            "insert into equipment (name, category, price, rent_start_day, comment)",
+                            "values (?, ?, ?, ?, ?)"
+                    ),
+                    (stmt) -> {
+                        stmt.setString(1, this.name);
+                        stmt.setInt(2, this.category);
+                        stmt.setInt(3, this.price);
+                        stmt.setInt(4, this.rentStartDay);
+                        stmt.setString(5, this.comment);
+                    });
+        } else {
+            execute(String.join(" ",
+                            "update equipment",
+                            "set",
+                            "    name = ?,",
+                            "    category = ?,",
+                            "    price = ?,",
+                            "    rent_start_day = ?,",
+                            "    comment = ?",
+                            "where id = ?"
+                    ),
+                    (stmt) -> {
+                        stmt.setString(1, this.name);
+                        stmt.setInt(2, this.category);
+                        stmt.setInt(3, this.price);
+                        stmt.setInt(4, this.rentStartDay);
+                        stmt.setString(5, this.comment);
+                        stmt.setInt(6, this.id);
+                    });
+        }
+    }
+
+    public void delete() {
         execute(String.join(" ",
-                        "replace into equipment (id, name, kind, price, rent_start_day)",
-                        "values (?, ?, ?, ?, ?)"
+                        "delete from equipment",
+                        "where id = ?"
                 ),
-                (stmt) -> {
-                    stmt.setInt(1, this.id);
-                    stmt.setString(2, this.name);
-                    stmt.setInt(3, this.category);
-                    stmt.setInt(4, this.price);
-                    stmt.setInt(5, this.rentStartDay);
-                    stmt.setString(6, this.comment);
-                });
+                (stmt) -> stmt.setInt(1, this.id));
     }
 
     public static ArrayList<Equipment> getList() {
         return select(String.join(" ",
                         "select *",
                         "from equipment"
+                ),
+                Equipment::from);
+    }
+
+    public static ArrayList<Equipment> getListOfAvailable() {
+        return select(String.join(" ",
+                        "select *",
+                        "from equipment",
+                        "where id not in (",
+                        "    select equipment_id",
+                        "    from reservations",
+                        "    where start_date <= now()",
+                        "        and coalesce(returned_date, now()) >= now()",
+                        ")"
                 ),
                 Equipment::from);
     }

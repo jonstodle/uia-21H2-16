@@ -7,9 +7,17 @@
         <servlet-name>equipment</servlet-name>
         <servlet-class>no.amv.api.EquipmentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admin/equipment</servlet-name>
+        <servlet-class>no.amv.api.admin.EquipmentServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>equipment</servlet-name>
         <url-pattern>/equipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin/equipment</servlet-name>
+        <url-pattern>/admin/equipment</url-pattern>
     </servlet-mapping>
 </web-app>
