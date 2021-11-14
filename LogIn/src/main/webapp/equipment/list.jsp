@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Available Equipment</title>
-    <link rel="stylesheet" href="picnic.css">
+    <link rel="stylesheet" href="/amv/picnic.css">
 </head>
 <body>
 <main>

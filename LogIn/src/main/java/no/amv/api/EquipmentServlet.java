@@ -9,8 +9,7 @@ import java.io.IOException;
 public class EquipmentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var equipment = no.amv.database.models.Equipment.getList();
-
+        var equipment = no.amv.database.models.Equipment.getListOfAvailable();
         var category = req.getParameter("category");
         if (category != null) {
             var categoryInt = Integer.parseInt(category);
@@ -22,6 +21,6 @@ public class EquipmentServlet extends HttpServlet {
         }
 
         req.setAttribute("equipment", equipment);
-        req.getRequestDispatcher("equipment.jsp").forward(req, resp);
+        req.getRequestDispatcher("equipment/list.jsp").forward(req, resp);
     }
 }
