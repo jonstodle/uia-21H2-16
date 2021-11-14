@@ -34,7 +34,7 @@
             <%=e.getRentStartDay()%>
         </td>
         <td>
-            <%=e.getComment()%>
+            <%=e.getComment() == null ? "" : e.getComment()%>
         </td>
     </tr>
     <%}%>
