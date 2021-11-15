@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>AMV</title>
-    <link rel="stylesheet" href="/amv/picnic.css">
+    <link rel="stylesheet" href="/amv/static/picnic.css">
     <style>
         body {
             padding-top: 4rem;
@@ -43,5 +43,7 @@
         <span>|</span>
         <a href="/amv/admin/equipment">Admin/Equipment</a>
         <a href="/amv/admin/users">Admin/Users</a>
+        <span>|</span>
+        <a href="/amv/login?logout">Log out</a>
     </div>
 </nav>

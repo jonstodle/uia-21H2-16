@@ -26,9 +26,7 @@
         </label>
         <label>
             Password:
-            <input type="text" name="password"
-                   value="<%=getUser(request) != null ? getUser(request).getPassword() : ""%>"
-                   required>
+            <input type="text" name="password" required>
         </label>
         <input type="submit" value="Save">
     </form>

@@ -59,12 +59,12 @@ public class User extends ModelBase {
         }
     }
 
-    public boolean checkPassword(String password) {
+    public boolean isValidPassword(String password) {
         try {
             var md = MessageDigest.getInstance("SHA-512");
             md.update(this.salt.getBytes(StandardCharsets.UTF_8));
             var digest = md.digest(password.getBytes(StandardCharsets.UTF_8));
-            return Base64.getEncoder().encodeToString(digest) == this.password;
+            return Base64.getEncoder().encodeToString(digest).equals(this.password);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return false;
@@ -129,6 +129,17 @@ public class User extends ModelBase {
                         "limit 1"
                 ),
                 (stmt) -> stmt.setInt(1, id),
+                User::from);
+    }
+
+    public static User getByUsername(String username) {
+        return get(String.join(" ",
+                        "select *",
+                        "from users",
+                        "where lower(name) = lower(?)",
+                        "limit 1"
+                ),
+                (stmt) -> stmt.setString(1, username),
                 User::from);
     }
 

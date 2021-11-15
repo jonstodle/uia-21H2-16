@@ -16,7 +16,15 @@ create table if not exists user_roles
     user_id int          not null,
     name    varchar(255) not null,
     primary key (user_id, name),
-    constraint FK_user_id foreign key (user_id) references users (id)
+    constraint FK_user_roles_users_id foreign key (user_id) references users (id)
+);
+
+create table if not exists sessions
+(
+    id         varchar(255) unique primary key,
+    user_id    int       not null,
+    expires_at timestamp not null,
+    constraint FK_sessions_users_id foreign key (user_id) references users (id)
 );
 
 create table if not exists equipment
@@ -36,8 +44,8 @@ create table if not exists reservation
     equipment_id  int  not null,
     start_date    date not null,
     returned_date date null,
-    constraint FK_user_id foreign key (user_id) references users (id),
-    constraint FK_equipment_id foreign key (equipment_id) references equipment (id)
+    constraint FK_reservations_users_id foreign key (user_id) references users (id),
+    constraint FK_reservations_equipment_id foreign key (equipment_id) references equipment (id)
 );
 
 create table if not exists leases
