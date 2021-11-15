@@ -1,18 +1,12 @@
 <%@ page import="no.amv.database.models.Equipment" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%!
     Equipment getEquipment(HttpServletRequest req) {
         return (Equipment) req.getAttribute("equipment");
     }
 %>
-<html>
-<head>
-    <title>
-        <%=getEquipment(request) != null ? String.join(" ", "Add", getEquipment(request).getName()) : "Add new equipment"%>
-    </title>
-    <link rel="stylesheet" href="/amv/picnic.css">
-</head>
-<body>
+<t:header/>
 <h1><%=getEquipment(request) != null ? String.join(" ", "Add", getEquipment(request).getName()) : "Add new equipment"%>
 </h1>
 <main>
@@ -57,5 +51,4 @@
         flex-direction: column;
     }
 </style>
-</body>
-</html>
+<t:footer/>

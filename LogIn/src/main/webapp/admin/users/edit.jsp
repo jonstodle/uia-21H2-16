@@ -1,18 +1,12 @@
 <%@ page import="no.amv.database.models.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%!
     User getUser(HttpServletRequest req) {
         return (User) req.getAttribute("user");
     }
 %>
-<html>
-<head>
-    <title>
-        <%=getUser(request) != null ? String.join(" ", "Add", getUser(request).getName()) : "Add new user"%>
-    </title>
-    <link rel="stylesheet" href="/amv/picnic.css">
-</head>
-<body>
+<t:header/>
 <h1><%=getUser(request) != null ? String.join(" ", "Add", getUser(request).getName()) : "Add new user"%>
 </h1>
 <main>
@@ -45,5 +39,4 @@
         flex-direction: column;
     }
 </style>
-</body>
-</html>
+<t:footer/>

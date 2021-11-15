@@ -1,15 +1,11 @@
 <%@ page import="no.amv.database.models.Lease" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Leases</title>
-    <link rel="stylesheet" href="/amv/picnic.css">
-</head>
-<body>
-<nav>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:header/>
+<aside class="actions-container">
     <a href="/amv/leases?upload" class="button">Upload</a>
-</nav>
+</aside>
 <main>
     <table>
         <tr>
@@ -37,15 +33,4 @@
         <%}%>
     </table>
 </main>
-<style>
-    nav {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    main {
-        margin-top: 4rem;
-    }
-</style>
-</body>
-</html>
+<t:footer/>

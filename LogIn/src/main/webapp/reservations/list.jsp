@@ -1,14 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="no.amv.database.models.UserReservation" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Your reservations</title>
-    <link rel="stylesheet" href="/amv/picnic.css">
-</head>
-<body>
-<nav>
-</nav>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:header/>
 <main>
     <table>
         <tr>
@@ -39,16 +33,4 @@
         <%}%>
     </table>
 </main>
-<style>
-    nav {
-        display: flex;
-        justify-content: flex-end;
-        box-shadow: 0 3px rgba(0, 0, 0, .2);
-    }
-
-    main {
-        margin-top: 4rem;
-    }
-</style>
-</body>
-</html>
+<t:footer/>

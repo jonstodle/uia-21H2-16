@@ -1,23 +1,19 @@
 <%@ page import="no.amv.database.models.Equipment" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Available Equipment</title>
-    <link rel="stylesheet" href="/amv/picnic.css">
-</head>
-<body>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:header/>
 <main>
     <aside>
         <ul>
             <li class="card">
-                <a href="/amv/equipment">
+                <a href="/amv/equipment" class="filter">
                     All
                 </a>
             </li>
             <%for (int i = 0; i < Equipment.getCategoryNames().length; i++) {%>
             <li class="card">
-                <a href="/amv/equipment?category=<%=i + 1%>">
+                <a href="/amv/equipment?category=<%=i + 1%>" class="filter">
                     <%=Equipment.getCategoryNames()[i]%>
                 </a>
             </li>
@@ -66,10 +62,6 @@
 </main>
 
 <style>
-    body {
-        max-width: 1200px;
-    }
-
     main {
         display: grid;
         gap: 2rem;
@@ -87,7 +79,7 @@
         padding: 0;
     }
 
-    a {
+    a.filter {
         padding: .5rem 1rem;
     }
 
@@ -95,5 +87,4 @@
         grid-area: main;
     }
 </style>
-</body>
-</html>
+<t:footer/>
