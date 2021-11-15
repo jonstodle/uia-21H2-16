@@ -19,6 +19,9 @@ create table Reservations
         foreign key (equipmentID) references equipments (equipmentID)
 );
 
+alter table Reservations
+add Returned boolean DEFAULT TRUE;
+
 insert into Reservations (ReservationID,ReservationDays, userID,ReservationPrice, equipmentID, rentStartDate)
 values  ('1','1','5','gratis + papir','1','2021-10-18');
 
