@@ -40,7 +40,7 @@ public class UsersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         var editParam = req.getParameter("edit");
         if (editParam != null) {
-            var user = new User(0, "", "", "");
+            var user = new User(0, "", "", "", User.generateSalt());
 
             if (editParam != "") {
                 var editId = Integer.parseInt(editParam);

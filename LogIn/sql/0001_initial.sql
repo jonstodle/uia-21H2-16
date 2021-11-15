@@ -7,7 +7,8 @@ create table if not exists users
     id       int unique auto_increment primary key,
     name     text not null,
     email    text not null,
-    password text not null
+    password text not null,
+    salt     text not null
 );
 
 create table if not exists user_roles

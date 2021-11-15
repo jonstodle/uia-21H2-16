@@ -1,12 +1,12 @@
 insert into users
-    (id, name, email, password)
-values (1, 'Adel', 'adel@example.com', '12345'),
-       (2, 'Ahmad', 'ahmad@example.com', '12345'),
-       (3, 'Jon', 'jon@example.com', '12345'),
-       (4, 'Khalel', 'khalel@example.com', '12345'),
-       (5, 'Kristoffer', 'kristoffer@example.com', '12345'),
-       (6, 'Ritwaan', 'ritwaan@example.com', '12345'),
-       (7, 'Wad', 'wad@example.com', '12345');
+    (id, name, email, password, salt)
+values (1, 'Adel', 'adel@example.com', '12345', '1234'),
+       (2, 'Ahmad', 'ahmad@example.com', '12345', '1234'),
+       (3, 'Jon', 'jon@example.com', '12345', '1234'),
+       (4, 'Khalel', 'khalel@example.com', '12345', '1234'),
+       (5, 'Kristoffer', 'kristoffer@example.com', '12345', '1234'),
+       (6, 'Ritwaan', 'ritwaan@example.com', '12345', '1234'),
+       (7, 'Wad', 'wad@example.com', '12345', '1234');
 
 insert into user_roles (user_id, name)
 values (1, 'admin'),
