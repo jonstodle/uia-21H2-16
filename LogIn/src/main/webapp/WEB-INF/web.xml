@@ -12,6 +12,10 @@
         <servlet-class>no.amv.api.ReservationsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>leases</servlet-name>
+        <servlet-class>no.amv.api.LeasesServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>admin/equipment</servlet-name>
         <servlet-class>no.amv.api.admin.EquipmentServlet</servlet-class>
     </servlet>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>reservations</servlet-name>
         <url-pattern>/reservations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>leases</servlet-name>
+        <url-pattern>/leases</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>admin/equipment</servlet-name>

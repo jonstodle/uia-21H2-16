@@ -38,3 +38,10 @@ create table if not exists reservation
     constraint FK_user_id foreign key (user_id) references users (id),
     constraint FK_equipment_id foreign key (equipment_id) references equipment (id)
 );
+
+create table if not exists leases
+(
+    id   int unique auto_increment primary key,
+    name text       not null,
+    data mediumblob not null
+);
