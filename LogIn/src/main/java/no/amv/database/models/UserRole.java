@@ -13,6 +13,22 @@ public class UserRole extends ModelBase {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static ArrayList<UserRole> getByUserId(int id) {
         return select(String.join(" ",
                         "select *",
