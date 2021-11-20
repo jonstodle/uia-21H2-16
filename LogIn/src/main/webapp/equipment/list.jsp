@@ -68,6 +68,7 @@
         grid-template:
             "nav main"
             / 200px auto;
+        align-items: start;
     }
 
     aside {
