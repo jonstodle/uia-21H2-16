@@ -31,7 +31,12 @@ public class AuthFilter extends HttpFilter {
     }
 
     User getUser(HttpServletRequest req) {
-        var cookieMaybe = Arrays.stream(req.getCookies()).filter(c -> c.getName().equals("amv-session")).findFirst();
+        var cookies = req.getCookies();
+        if (cookies == null) {
+            return null;
+        }
+
+        var cookieMaybe = Arrays.stream(cookies).filter(c -> c.getName().equals("amv-session")).findFirst();
         if (cookieMaybe.isEmpty()) {
             return null;
         }
