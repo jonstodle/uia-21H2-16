@@ -37,7 +37,7 @@ create table if not exists equipment
     comment        text null
 );
 
-create table if not exists reservation
+create table if not exists reservations
 (
     id            int unique auto_increment primary key,
     user_id       int  not null,
