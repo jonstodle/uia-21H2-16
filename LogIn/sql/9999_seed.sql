@@ -28,7 +28,7 @@ insert into equipment
     (name, category, price, rent_start_day, comment)
 values ('Eksentersliper 230VAC', 1, 2000, 3, null),
        ('Båndsliper 230VAC', 1, 2000, 3, null),
-       ('Høvel 230VAC', 'diverse «småutstyr» ', 2000, 3, null),
+       ('Høvel 230VAC', 1, 2000, 3, null),
        ('Gjære-/kombisag 230VAC', 1, 2000, 3, null),
        ('9’ vinkelsliper for stein og betong', 1, 2000, 3, null),
        ('Meislemaskin, 230VAC', 1, 2000, 3, null),
