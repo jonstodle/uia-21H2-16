@@ -1,6 +1,7 @@
 <%@tag description="Page header template" pageEncoding="UTF-8" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AMV</title>
     <link rel="stylesheet" href="/amv/static/picnic.css">
     <style>
@@ -8,20 +9,9 @@
             padding-top: 4rem;
         }
 
-        #page-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            box-shadow: 0 2px rgba(0, 0, 0, .2);
-        }
-
         #page-title {
             display: inline;
             padding: 0;
-        }
-
-        #page-nav > div > * {
-            padding: .5rem 1rem;
         }
 
         .actions-container {
@@ -36,14 +26,17 @@
         AMV
     </h1>
 
-    <div>
-        <a href="/amv/equipment">Equipment</a>
-        <a href="/amv/reservations">Reservations</a>
-        <a href="/amv/leases">Leases</a>
+    <input id="bmenub" type="checkbox" class="show">
+    <label for="bmenub" class="burger pseudo button">menu</label>
+
+    <div class="menu">
+        <a href="/amv/equipment" class="button pseudo">Equipment</a>
+        <a href="/amv/reservations" class="button pseudo">Reservations</a>
+        <a href="/amv/leases" class="button pseudo">Leases</a>
         <span>|</span>
-        <a href="/amv/admin/equipment">Admin/Equipment</a>
-        <a href="/amv/admin/users">Admin/Users</a>
+        <a href="/amv/admin/equipment" class="button pseudo">Admin/Equipment</a>
+        <a href="/amv/admin/users" class="button pseudo">Admin/Users</a>
         <span>|</span>
-        <a href="/amv/login?logout">Log out</a>
+        <a href="/amv/login?logout" class="button pseudo">Log out</a>
     </div>
 </nav>
