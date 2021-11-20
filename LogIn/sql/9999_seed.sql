@@ -1,12 +1,19 @@
 insert into users
     (id, name, email, password, salt)
-values (1, 'Adel', 'adel@example.com', '12345', '1234'),
-       (2, 'Ahmad', 'ahmad@example.com', '12345', '1234'),
-       (3, 'Jon', 'jon@example.com', '12345', '1234'),
-       (4, 'Khalel', 'khalel@example.com', '12345', '1234'),
-       (5, 'Kristoffer', 'kristoffer@example.com', '12345', '1234'),
-       (6, 'Ritwaan', 'ritwaan@example.com', '12345', '1234'),
-       (7, 'Wad', 'wad@example.com', '12345', '1234');
+values (1, 'Adel', 'adel@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (2, 'Ahmad', 'ahmad@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (3, 'Jon', 'jon@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (4, 'Khalel', 'khalel@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (5, 'Kristoffer', 'kristoffer@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (6, 'Ritwaan', 'ritwaan@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+       (7, 'Wad', 'wad@example.com',
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234');
 
 insert into user_roles (user_id, name)
 values (1, 'admin'),
