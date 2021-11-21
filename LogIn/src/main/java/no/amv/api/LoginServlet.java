@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 
         var cookie = new Cookie("amv-session", session.getId());
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+//        cookie.setSecure(true); Make Safari happy when developing locally
         cookie.setMaxAge(30 * 24 * 60 * 60); // 30 days
 
         resp.addCookie(cookie);
