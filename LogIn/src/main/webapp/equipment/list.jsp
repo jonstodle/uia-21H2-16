@@ -21,44 +21,48 @@
         </ul>
     </aside>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Kind</th>
-            <th>Price</th>
-            <th>Rent starts on day</th>
-            <th>Comment</th>
-            <th>Actions</th>
-        </tr>
+    <section>
         <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
-        <tr>
-            <td>
-                <%=e.getName()%>
-            </td>
-            <td>
-                <%=e.getCategoryName()%>
-            </td>
-            <td>
+        <article class="card">
+            <header>
+                <h3>
+                    <%=e.getName()%>
+                </h3>
+                <span>
                 <%if (e.getPrice() < 0) {%>
                 -
                 <%} else {%>
-                <%=e.getPrice() / 100%> kr
+                <%=e.getPrice() / 100%>&nbsp;kr
                 <%}%>
-            </td>
-            <td>
-                <%=e.getRentStartDay()%>
-            </td>
-            <td>
-                <%=e.getComment() == null ? "" : e.getComment()%>
-            </td>
-            <td>
+                </span>
+            </header>
+            <div class="content">
+                <strong>
+                    Category
+                </strong>
+                <span>
+                    <%=e.getCategoryName()%>
+                </span>
+
+                <strong>
+                    Rent starts on day
+                </strong>
+                <span>
+                    <%=e.getRentStartDay()%>
+                </span>
+
+                <span class="comment">
+                    <%=e.getComment() == null ? "" : e.getComment()%>
+                </span>
+            </div>
+            <footer>
                 <a href="/amv/reservations?new=<%=e.getId()%>" class="button">
                     Reserve
                 </a>
-            </td>
-        </tr>
+            </footer>
+        </article>
         <%}%>
-    </table>
+    </section>
 </main>
 
 <style>
@@ -69,6 +73,14 @@
             "nav main"
             / 200px auto;
         align-items: start;
+    }
+
+    @media (max-width: 600px) {
+        main {
+            grid-template:
+                "nav"
+                "main";
+        }
     }
 
     aside {
@@ -86,6 +98,31 @@
 
     table {
         grid-area: main;
+    }
+
+    .card h3 {
+        display: inline;
+    }
+
+    .card header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card .content {
+        padding: 0 1rem;
+        display: grid;
+        gap: .5rem;
+        grid-template-columns: auto 1fr;
+    }
+
+    .card .content .comment {
+        grid-column-end: span 2;
+    }
+
+    .card footer {
+        display: flex;
+        justify-content: flex-end;
     }
 </style>
 <t:footer/>
