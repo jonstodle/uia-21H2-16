@@ -3,34 +3,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:header/>
-<main>
-    <table>
-        <tr>
-            <th>Equipment</th>
-            <th>Start date</th>
-            <th>Returned date</th>
-            <th>Actions</th>
-        </tr>
-        <%for (UserReservation ur : (ArrayList<UserReservation>) request.getAttribute("reservations")) { %>
-        <tr>
-            <td>
+<main class="list">
+    <%for (UserReservation ur : (ArrayList<UserReservation>) request.getAttribute("reservations")) { %>
+    <article class="card">
+        <header>
+            <h3>
                 <%=ur.getEquipment()%>
-            </td>
-            <td>
+            </h3>
+        </header>
+        <div class="content">
+            <strong>Equipment</strong>
+            <span>
                 <%=ur.getStartDate()%>
-            </td>
-            <td>
+                </span>
+            <strong>Returned date</strong>
+            <span>
                 <%=ur.getReturnedDate() != null ? ur.getReturnedDate() : ""%>
-            </td>
-            <td>
-                <%if (ur.getReturnedDate() == null) {%>
-                <form action="/amv/reservations?return=<%=ur.getReservationId()%>" method="POST">
-                    <input type="submit" value="Return">
-                </form>
-                <%}%>
-            </td>
-        </tr>
-        <%}%>
-    </table>
+                </span>
+        </div>
+        <footer>
+            <%if (ur.getReturnedDate() == null) {%>
+            <form action="/amv/reservations?return=<%=ur.getReservationId()%>" method="POST">
+                <input type="submit" value="Return">
+            </form>
+            <%}%>
+        </footer>
+    </article>
+    <%}%>
 </main>
+<style>
+    form {
+        margin: 0;
+    }
+</style>
 <t:footer/>

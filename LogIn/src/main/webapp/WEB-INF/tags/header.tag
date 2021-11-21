@@ -18,6 +18,32 @@
             display: flex;
             justify-content: flex-end;
         }
+
+        .list > .card {
+            max-width: 800px;
+        }
+
+        .list > .card header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .list > .card header h3 {
+            display: inline;
+        }
+
+        .list > .card .content {
+            padding: 1rem 1rem 0 1rem;
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: auto 1fr;
+        }
+
+        .list > .card footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: .5rem;
+        }
     </style>
 </head>
 <body>

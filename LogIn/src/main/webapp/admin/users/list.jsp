@@ -6,31 +6,34 @@
 <aside class="actions-container">
     <a href="/amv/admin/users?edit" class="button">Add user</a>
 </aside>
-<main>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        <%for (User u : (ArrayList<User>) request.getAttribute("users")) { %>
-        <tr>
-            <td>
+<main class="list">
+    <%for (User u : (ArrayList<User>) request.getAttribute("users")) { %>
+    <article class="card">
+        <header>
+            <h3>
                 <%=u.getName()%>
-            </td>
-            <td>
-                <%=u.getEmail()%>
-            </td>
-            <td>
-                <a href="/amv/admin/users?edit=<%=u.getId()%>" class="button">
-                    Edit
-                </a>
-                <a href="/amv/admin/users?delete=<%=u.getId()%>" class="error button">
-                    Delete
-                </a>
-            </td>
-        </tr>
-        <%}%>
-    </table>
+            </h3>
+        </header>
+        <div class="content">
+            <strong>Email</strong>
+            <span>
+                    <%=u.getEmail()%>
+                </span>
+        </div>
+        <footer>
+            <a href="/amv/admin/users?edit=<%=u.getId()%>" class="button">
+                Edit
+            </a>
+            <a href="/amv/admin/users?delete=<%=u.getId()%>" class="error button">
+                Delete
+            </a>
+        </footer>
+    </article>
+    <%}%>
 </main>
+<style>
+    .actions-container {
+        margin-bottom: 2rem;
+    }
+</style>
 <t:footer/>

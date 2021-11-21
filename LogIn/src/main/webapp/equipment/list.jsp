@@ -6,14 +6,14 @@
 <main>
     <aside>
         <ul>
-            <li class="card">
-                <a href="/amv/equipment" class="filter">
+            <li>
+                <a href="/amv/equipment" class="button pseudo filter">
                     All
                 </a>
             </li>
             <%for (int i = 0; i < Equipment.getCategoryNames().length; i++) {%>
-            <li class="card">
-                <a href="/amv/equipment?category=<%=i + 1%>" class="filter">
+            <li>
+                <a href="/amv/equipment?category=<%=i + 1%>" class="button pseudo filter">
                     <%=Equipment.getCategoryNames()[i]%>
                 </a>
             </li>
@@ -21,7 +21,7 @@
         </ul>
     </aside>
 
-    <section>
+    <section class="list">
         <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
         <article class="card">
             <header>
@@ -89,40 +89,21 @@
 
     ul {
         list-style: none;
+        margin-top: 0;
         padding: 0;
     }
 
     a.filter {
-        padding: .5rem 1rem;
+        width: 100%;
+        text-align: start;
     }
 
-    table {
+    .list {
         grid-area: main;
     }
 
-    .card h3 {
-        display: inline;
-    }
-
-    .card header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .card .content {
-        padding: 0 1rem;
-        display: grid;
-        gap: .5rem;
-        grid-template-columns: auto 1fr;
-    }
-
-    .card .content .comment {
+    .list .card .content .comment {
         grid-column-end: span 2;
-    }
-
-    .card footer {
-        display: flex;
-        justify-content: flex-end;
     }
 </style>
 <t:footer/>

@@ -6,47 +6,58 @@
 <aside class="actions-container">
     <a href="/amv/admin/equipment?edit" class="button">Add equipment</a>
 </aside>
-<main>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Kind</th>
-            <th>Price</th>
-            <th>Rent starts on day</th>
-            <th>Comment</th>
-            <th>Actions</th>
-        </tr>
-        <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
-        <tr>
-            <td>
+<main class="list">
+    <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
+    <article class="card">
+        <header>
+            <h3>
                 <%=e.getName()%>
-            </td>
-            <td>
-                <%=e.getCategoryName()%>
-            </td>
-            <td>
+            </h3>
+            <span>
                 <%if (e.getPrice() < 0) {%>
                 -
                 <%} else {%>
-                <%=e.getPrice() / 100%> kr
+                <%=e.getPrice() / 100%>&nbsp;kr
                 <%}%>
-            </td>
-            <td>
-                <%=e.getRentStartDay()%>
-            </td>
-            <td>
-                <%=e.getComment() == null ? "" : e.getComment()%>
-            </td>
-            <td>
-                <a href="/amv/admin/equipment?edit=<%=e.getId()%>" class="button">
-                    Edit
-                </a>
-                <a href="/amv/admin/equipment?delete=<%=e.getId()%>" class="error button">
-                    Delete
-                </a>
-            </td>
-        </tr>
-        <%}%>
-    </table>
+                </span>
+        </header>
+        <div class="content">
+            <strong>
+                Category
+            </strong>
+            <span>
+                    <%=e.getCategoryName()%>
+                </span>
+
+            <strong>
+                Rent starts on day
+            </strong>
+            <span>
+                    <%=e.getRentStartDay()%>
+                </span>
+
+            <span class="comment">
+                    <%=e.getComment() == null ? "" : e.getComment()%>
+                </span>
+        </div>
+        <footer>
+            <a href="/amv/admin/equipment?edit=<%=e.getId()%>" class="button">
+                Edit
+            </a>
+            <a href="/amv/admin/equipment?delete=<%=e.getId()%>" class="error button">
+                Delete
+            </a>
+        </footer>
+    </article>
+    <%}%>
 </main>
+<style>
+    .actions-container {
+        margin-bottom: 2rem;
+    }
+
+    .list .card .content .comment {
+        grid-column-end: span 2;
+    }
+</style>
 <t:footer/>
