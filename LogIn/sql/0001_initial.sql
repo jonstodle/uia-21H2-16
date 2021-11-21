@@ -22,12 +22,13 @@ create table if not exists sessions
 
 create table if not exists equipment
 (
-    id             int unique auto_increment primary key,
-    name           text not null,
-    category       int  not null,
-    price          int  not null,
-    rent_start_day int  not null,
-    comment        text null
+    id              int unique auto_increment primary key,
+    name            text not null,
+    category        int  not null,
+    price           int  not null,
+    rent_start_day  int  not null,
+    max_rental_days int  not null,
+    comment         text null
 );
 
 create table if not exists reservations
@@ -36,6 +37,7 @@ create table if not exists reservations
     user_id       int  not null,
     equipment_id  int  not null,
     start_date    date not null,
+    end_date      date not null,
     returned_date date null,
     constraint FK_reservations_users_id foreign key (user_id) references users (id),
     constraint FK_reservations_equipment_id foreign key (equipment_id) references equipment (id)

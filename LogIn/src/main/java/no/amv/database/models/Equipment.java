@@ -10,6 +10,7 @@ public class Equipment extends ModelBase {
     int category;
     int price;
     int rentStartDay;
+    int maxRentalDays;
     String comment;
 
     static String[] categoryNames = new String[]{
@@ -20,13 +21,14 @@ public class Equipment extends ModelBase {
             "Større utstyr"
     };
 
-    public Equipment(int id, String name, int category, int price, int rentStartDay, String comment) {
+    public Equipment(int id, String name, int category, int price, int rentStartDay, int maxRentalDays, String comment) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.rentStartDay = rentStartDay;
         this.comment = comment;
+        this.maxRentalDays = maxRentalDays;
     }
 
     public int getId() {
@@ -69,6 +71,14 @@ public class Equipment extends ModelBase {
         this.rentStartDay = rentStartDay;
     }
 
+    public int getMaxRentalDays() {
+        return maxRentalDays;
+    }
+
+    public void setMaxRentalDays(int maxRentalDays) {
+        this.maxRentalDays = maxRentalDays;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -94,6 +104,7 @@ public class Equipment extends ModelBase {
                             "    category = ?,",
                             "    price = ?,",
                             "    rent_start_day = ?,",
+                            "    max_rental_days = ?,",
                             "    comment = ?",
                             "where id = ?"
                     ),
@@ -102,20 +113,22 @@ public class Equipment extends ModelBase {
                         stmt.setInt(2, this.category);
                         stmt.setInt(3, this.price);
                         stmt.setInt(4, this.rentStartDay);
-                        stmt.setString(5, this.comment);
-                        stmt.setInt(6, this.id);
+                        stmt.setInt(5, this.maxRentalDays);
+                        stmt.setString(6, this.comment);
+                        stmt.setInt(7, this.id);
                     });
         } else {
             execute(String.join(" ",
-                            "insert into equipment (name, category, price, rent_start_day, comment)",
-                            "values (?, ?, ?, ?, ?)"
+                            "insert into equipment (name, category, price, rent_start_day, max_rental_days, comment)",
+                            "values (?, ?, ?, ?, ?, ?)"
                     ),
                     (stmt) -> {
                         stmt.setString(1, this.name);
                         stmt.setInt(2, this.category);
                         stmt.setInt(3, this.price);
                         stmt.setInt(4, this.rentStartDay);
-                        stmt.setString(5, this.comment);
+                        stmt.setInt(5, this.maxRentalDays);
+                        stmt.setString(6, this.comment);
                     });
         }
     }
@@ -168,7 +181,8 @@ public class Equipment extends ModelBase {
                 rs.getInt(3),
                 rs.getInt(4),
                 rs.getInt(5),
-                rs.getString(6)
+                rs.getInt(6),
+                rs.getString(7)
         );
     }
 }

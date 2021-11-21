@@ -26,15 +26,22 @@
                 Category
             </strong>
             <span>
-                    <%=e.getCategoryName()%>
-                </span>
+                <%=e.getCategoryName()%>
+            </span>
 
             <strong>
                 Rent starts on day
             </strong>
             <span>
-                    <%=e.getRentStartDay()%>
-                </span>
+                <%=e.getRentStartDay()%>
+            </span>
+
+            <strong>
+                Max rental days
+            </strong>
+            <span>
+                <%=e.getMaxRentalDays()%>
+            </span>
 
             <span class="comment">
                     <%=e.getComment() == null ? "" : e.getComment()%>

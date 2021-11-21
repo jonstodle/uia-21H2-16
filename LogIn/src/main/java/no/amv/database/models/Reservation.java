@@ -10,13 +10,15 @@ public class Reservation extends ModelBase {
     int userId;
     int equipmentId;
     Date startDate;
+    Date endDate;
     Date returnedDate;
 
-    public Reservation(int id, int userId, int equipmentId, Date startDate, Date returnedDate) {
+    public Reservation(int id, int userId, int equipmentId, Date startDate, Date endDate, Date returnedDate) {
         this.id = id;
         this.userId = userId;
         this.equipmentId = equipmentId;
         this.startDate = startDate;
+        this.endDate = endDate;
         this.returnedDate = returnedDate;
     }
 
@@ -25,14 +27,15 @@ public class Reservation extends ModelBase {
             // Not needed?
         } else {
             execute(String.join(" ",
-                            "insert into reservations (user_id, equipment_id, start_date, returned_date)",
-                            "values (?, ?, ?, ?)"
+                            "insert into reservations (user_id, equipment_id, start_date, end_date, returned_date)",
+                            "values (?, ?, ?, ?, ?)"
                     ),
                     (stmt) -> {
                         stmt.setInt(1, this.userId);
                         stmt.setInt(2, this.equipmentId);
                         stmt.setDate(3, this.startDate);
-                        stmt.setDate(4, this.returnedDate);
+                        stmt.setDate(4, this.endDate);
+                        stmt.setDate(5, this.returnedDate);
                     });
         }
     }
@@ -82,7 +85,8 @@ public class Reservation extends ModelBase {
                 rs.getInt(2),
                 rs.getInt(3),
                 rs.getDate(4),
-                rs.getDate(5)
+                rs.getDate(5),
+                rs.getDate(6)
         );
     }
 }

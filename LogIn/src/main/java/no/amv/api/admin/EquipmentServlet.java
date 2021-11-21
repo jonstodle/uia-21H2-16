@@ -40,7 +40,7 @@ public class EquipmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         var editParam = req.getParameter("edit");
         if (editParam != null) {
-            var equipment = new Equipment(0, "", 1, -1, 3, null);
+            var equipment = new Equipment(0, "", 1, -1, 3, 3, null);
 
             if (editParam != "") {
                 var editId = Integer.parseInt(editParam);
@@ -50,6 +50,7 @@ public class EquipmentServlet extends HttpServlet {
             equipment.setName(req.getParameter("name"));
             equipment.setCategory(Integer.parseInt(req.getParameter("category")));
             equipment.setRentStartDay(Integer.parseInt(req.getParameter("rent-starts-on-day")));
+            equipment.setMaxRentalDays(Integer.parseInt(req.getParameter("max-rental-days")));
             equipment.setComment(req.getParameter("comment"));
 
             var newPrice = -1;

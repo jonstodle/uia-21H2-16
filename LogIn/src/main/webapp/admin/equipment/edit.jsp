@@ -38,6 +38,11 @@
                    value="<%=getEquipment(request) != null ? getEquipment(request).getRentStartDay() : ""%>" required>
         </label>
         <label>
+            Rent start on day:
+            <input type="number" name="max-rental-days"
+                   value="<%=getEquipment(request) != null ? getEquipment(request).getMaxRentalDays() : ""%>" required>
+        </label>
+        <label>
             Comment:
             <textarea name="comment" cols="30"
                       rows="10"><%=getEquipment(request) != null ? getEquipment(request).getComment() != null ? getEquipment(request).getComment() : "" : ""%></textarea>

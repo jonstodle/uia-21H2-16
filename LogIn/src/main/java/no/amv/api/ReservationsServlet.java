@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.time.Duration;
 
 public class ReservationsServlet extends HttpServlet {
     @Override
@@ -35,9 +36,20 @@ public class ReservationsServlet extends HttpServlet {
         var newParam = req.getParameter("new");
         if (newParam != null) {
             var newId = Integer.parseInt(newParam);
-            var date = Date.valueOf(req.getParameter("date"));
+            var fromDate = Date.valueOf(req.getParameter("from-date"));
+            var toDate = Date.valueOf(req.getParameter("to-date"));
             var user = Utils.getUser(req);
-            new Reservation(0, user.getId(), newId, date, null).save();
+            var equipment = Equipment.getById(newId);
+
+            if (toDate.before(fromDate)) {
+                resp.sendRedirect("/amv/reservations?error=To+date+must+be+same+day+or+after+from+date&new=" + newParam);
+                return;
+            } else if (Duration.between(fromDate.toLocalDate().atStartOfDay(), toDate.toLocalDate().atStartOfDay()).toDays() > equipment.getMaxRentalDays()) {
+                resp.sendRedirect("/amv/reservations?error=Can+not+rent+equipment+for+this+long&new=" + newParam);
+                return;
+            }
+
+            new Reservation(0, user.getId(), newId, fromDate, toDate, null).save();
             resp.sendRedirect("/amv/reservations");
             return;
         }

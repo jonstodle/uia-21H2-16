@@ -12,14 +12,18 @@
             </h3>
         </header>
         <div class="content">
-            <strong>Equipment</strong>
+            <strong>Start</strong>
             <span>
                 <%=ur.getStartDate()%>
-                </span>
+            </span>
+            <strong>End</strong>
+            <span>
+                <%=ur.getEndDate()%>
+            </span>
             <strong>Returned date</strong>
             <span>
                 <%=ur.getReturnedDate() != null ? ur.getReturnedDate() : ""%>
-                </span>
+            </span>
         </div>
         <footer>
             <%if (ur.getReturnedDate() == null) {%>

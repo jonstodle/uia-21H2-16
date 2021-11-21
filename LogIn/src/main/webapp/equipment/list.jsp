@@ -53,6 +53,13 @@
                     <%=e.getRentStartDay()%>
                 </span>
 
+                <strong>
+                    Max rental days
+                </strong>
+                <span>
+                    <%=e.getMaxRentalDays()%>
+                </span>
+
                 <span class="comment">
                     <%=e.getComment() == null ? "" : e.getComment()%>
                 </span>
