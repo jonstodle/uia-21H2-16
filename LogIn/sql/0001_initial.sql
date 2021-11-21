@@ -39,6 +39,7 @@ create table if not exists reservations
     start_date    date not null,
     end_date      date not null,
     returned_date date null,
+    paid_date     date null,
     constraint FK_reservations_users_id foreign key (user_id) references users (id),
     constraint FK_reservations_equipment_id foreign key (equipment_id) references equipment (id)
 );

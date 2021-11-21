@@ -49,7 +49,7 @@ public class ReservationsServlet extends HttpServlet {
                 return;
             }
 
-            new Reservation(0, user.getId(), newId, fromDate, toDate, null).save();
+            new Reservation(0, user.getId(), newId, fromDate, toDate, null, null).save();
             resp.sendRedirect("/amv/reservations");
             return;
         }

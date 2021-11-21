@@ -12,14 +12,16 @@ public class UserReservation extends ModelBase {
     Date startDate;
     Date endDate;
     Date returnedDate;
+    Date paidDate;
 
-    public UserReservation(int reservationId, String user, String equipment, Date startDate, Date endDate, Date returnedDate) {
+    public UserReservation(int reservationId, String user, String equipment, Date startDate, Date endDate, Date returnedDate, Date paidDate) {
         this.reservationId = reservationId;
         this.user = user;
         this.equipment = equipment;
         this.startDate = startDate;
         this.endDate = endDate;
         this.returnedDate = returnedDate;
+        this.paidDate = paidDate;
     }
 
     public int getReservationId() {
@@ -62,9 +64,13 @@ public class UserReservation extends ModelBase {
         this.returnedDate = returnedDate;
     }
 
+    public Date getPaidDate() {
+        return paidDate;
+    }
+
     public static ArrayList<UserReservation> getByUserId(int id) {
         return select(String.join(" ",
-                        "select r.id, null, e.name, r.start_date, r.end_date, r.returned_date",
+                        "select r.id, null, e.name, r.start_date, r.end_date, r.returned_date, r.paid_date",
                         "from equipment e",
                         "join reservations r on e.id = r.equipment_id",
                         "where r.user_id = ?",
@@ -76,7 +82,7 @@ public class UserReservation extends ModelBase {
 
     public static ArrayList<UserReservation> getActive() {
         return select(String.join(" ",
-                        "select r.id, u.name, e.name, r.start_date, r.end_date, r.returned_date",
+                        "select r.id, u.name, e.name, r.start_date, r.end_date, r.returned_date, r.paid_date",
                         "from equipment e",
                         "join reservations r on e.id = r.equipment_id",
                         "join users u on r.user_id = u.id",
@@ -93,7 +99,8 @@ public class UserReservation extends ModelBase {
                 rs.getString(3),
                 rs.getDate(4),
                 rs.getDate(5),
-                rs.getDate(6)
+                rs.getDate(6),
+                rs.getDate(7)
         );
     }
 }

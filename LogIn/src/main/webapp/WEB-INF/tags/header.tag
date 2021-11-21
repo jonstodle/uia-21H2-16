@@ -27,6 +27,7 @@
         .list > .card header {
             display: flex;
             justify-content: space-between;
+            align-items: baseline;
         }
 
         .list > .card header h3 {
@@ -38,6 +39,7 @@
             display: grid;
             gap: .5rem;
             grid-template-columns: auto 1fr;
+            align-items: baseline;
         }
 
         .list > .card footer {
@@ -63,6 +65,7 @@
         <span>|</span>
         <a href="/amv/admin/equipment" class="button pseudo">Admin/Equipment</a>
         <a href="/amv/admin/reservations" class="button pseudo">Admin/Reservations</a>
+        <a href="/amv/admin/settlements" class="button pseudo">Admin/Settlements</a>
         <a href="/amv/admin/users" class="button pseudo">Admin/Users</a>
         <span>|</span>
         <a href="/amv/login?logout" class="button pseudo">Log out</a>

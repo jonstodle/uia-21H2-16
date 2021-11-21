@@ -156,6 +156,19 @@ public class User extends ModelBase {
                 User::from);
     }
 
+    public static ArrayList<User> getWithUnsettledReservations() {
+        return select(String.join(" ",
+                        "select *",
+                        "from users",
+                        "where id in (",
+                        "    select user_id",
+                        "    from reservations",
+                        "    where paid_date is null",
+                        ")"
+                ),
+                User::from);
+    }
+
     public static String generateSalt() {
         var bytes = new byte[16];
         var secureRandom = new SecureRandom();

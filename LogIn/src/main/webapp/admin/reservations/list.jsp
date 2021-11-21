@@ -23,7 +23,19 @@
                 &mdash;
             <%=ur.getEndDate()%>
         </span>
+
+            <strong>Paid</strong>
+            <span>
+            <%=ur.getPaidDate() == null ? "Not paid" : ur.getPaidDate()%>
+        </span>
         </div>
+        <footer>
+            <%if (ur.getPaidDate() == null) {%>
+            <form action="/amv/admin/reservations?markPaid=<%=ur.getReservationId()%>" method="POST">
+                <input type="submit" value="Mark as paid">
+            </form>
+            <%}%>
+        </footer>
     </article>
     <%}%>
 </main>

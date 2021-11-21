@@ -28,6 +28,10 @@
         <servlet-class>no.amv.api.admin.ReservationsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>admin/settlements</servlet-name>
+        <servlet-class>no.amv.api.admin.SettlementsServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>admin/users</servlet-name>
         <servlet-class>no.amv.api.admin.UsersServlet</servlet-class>
     </servlet>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>admin/reservations</servlet-name>
         <url-pattern>/admin/reservations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin/settlements</servlet-name>
+        <url-pattern>/admin/settlements</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>admin/users</servlet-name>
