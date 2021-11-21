@@ -62,6 +62,7 @@
         <a href="/amv/leases" class="button pseudo">Leases</a>
         <span>|</span>
         <a href="/amv/admin/equipment" class="button pseudo">Admin/Equipment</a>
+        <a href="/amv/admin/reservations" class="button pseudo">Admin/Reservations</a>
         <a href="/amv/admin/users" class="button pseudo">Admin/Users</a>
         <span>|</span>
         <a href="/amv/login?logout" class="button pseudo">Log out</a>
