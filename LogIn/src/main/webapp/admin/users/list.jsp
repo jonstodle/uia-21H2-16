@@ -5,6 +5,7 @@
 <t:header/>
 <aside class="actions-container">
     <a href="/amv/admin/users?edit" class="button">Add user</a>
+    <a href="/amv/admin/users?import" class="button">Import users</a>
 </aside>
 <main class="list">
     <%for (User u : (ArrayList<User>) request.getAttribute("users")) { %>

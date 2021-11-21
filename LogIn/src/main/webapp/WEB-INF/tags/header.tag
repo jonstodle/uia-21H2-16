@@ -17,6 +17,7 @@
         .actions-container {
             display: flex;
             justify-content: flex-end;
+            gap: .5rem;
         }
 
         .list > .card {

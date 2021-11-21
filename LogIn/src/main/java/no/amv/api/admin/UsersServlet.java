@@ -3,11 +3,13 @@ package no.amv.api.admin;
 import no.amv.database.models.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@MultipartConfig
 public class UsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,6 +30,12 @@ public class UsersServlet extends HttpServlet {
             var user = User.getById(deleteId);
             req.setAttribute("user", user);
             req.getRequestDispatcher("users/delete.jsp").forward(req, resp);
+            return;
+        }
+
+        var importParam = req.getParameter("import");
+        if (importParam != null) {
+            req.getRequestDispatcher("users/import.jsp").forward(req, resp);
             return;
         }
 
@@ -70,6 +78,27 @@ public class UsersServlet extends HttpServlet {
             var deleteId = Integer.parseInt(deleteParam);
             var user = User.getById(deleteId);
             user.delete();
+        }
+
+        var importParam = req.getParameter("import");
+        if (importParam != null) {
+            var filePart = req.getPart("file");
+            new String(filePart.getInputStream().readAllBytes())
+                    .lines()
+                    .map(l -> {
+                        var split = l.split(",");
+                        return new User(
+                                0,
+                                split[0],
+                                split[1],
+                                split[2],
+                                User.generateSalt()
+                        );
+                    })
+                    .forEach(User::save);
+
+            resp.sendRedirect("/amv/admin/users");
+            return;
         }
 
         resp.sendRedirect("/amv/admin/users");
