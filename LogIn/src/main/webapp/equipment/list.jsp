@@ -7,13 +7,15 @@
     <aside>
         <ul>
             <li>
-                <a href="/amv/equipment" class="button pseudo filter">
+                <a href="/amv/equipment"
+                   class="button <%=request.getParameter("category") == null ? "" : "pseudo"%> filter">
                     All
                 </a>
             </li>
             <%for (int i = 0; i < Equipment.getCategoryNames().length; i++) {%>
             <li>
-                <a href="/amv/equipment?category=<%=i + 1%>" class="button pseudo filter">
+                <a href="/amv/equipment?category=<%=i + 1%>"
+                   class="button <%=request.getParameter("category") != null && request.getParameter("category").equals(Integer.toString(i + 1)) ? "" : "pseudo"%> filter">
                     <%=Equipment.getCategoryNames()[i]%>
                 </a>
             </li>
