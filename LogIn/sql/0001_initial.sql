@@ -8,15 +8,8 @@ create table if not exists users
     name     text not null,
     email    text not null,
     password text not null,
-    salt     text not null
-);
-
-create table if not exists user_roles
-(
-    user_id int          not null,
-    name    varchar(255) not null,
-    primary key (user_id, name),
-    constraint FK_user_roles_users_id foreign key (user_id) references users (id)
+    salt     text not null,
+    is_admin bool not null
 );
 
 create table if not exists sessions

@@ -15,13 +15,15 @@ public class User extends ModelBase {
     String email;
     String password;
     String salt;
+    boolean isAdmin;
 
-    public User(int id, String name, String email, String password, String salt) {
+    public User(int id, String name, String email, String password, String salt, boolean isAdmin) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.salt = salt;
+        this.isAdmin = isAdmin;
     }
 
     public int getId() {
@@ -75,6 +77,14 @@ public class User extends ModelBase {
         return salt;
     }
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
     public void save() {
         if (this.id > 0) {
             execute(String.join(" ",
@@ -82,25 +92,28 @@ public class User extends ModelBase {
                             "set",
                             "    name = ?,",
                             "    email = ?,",
-                            "    password = ?",
+                            "    password = ?,",
+                            "    is_admin = ?",
                             "where id = ?"
                     ),
                     (stmt) -> {
                         stmt.setString(1, this.name);
                         stmt.setString(2, this.email);
                         stmt.setString(3, this.password);
-                        stmt.setInt(4, this.id);
+                        stmt.setBoolean(4, this.isAdmin);
+                        stmt.setInt(5, this.id);
                     });
         } else {
             execute(String.join(" ",
-                            "insert into users (name, email, password, salt)",
-                            "values (?, ?, ?, ?)"
+                            "insert into users (name, email, password, salt, is_admin)",
+                            "values (?, ?, ?, ?, ?)"
                     ),
                     (stmt) -> {
                         stmt.setString(1, this.name);
                         stmt.setString(2, this.email);
                         stmt.setString(3, this.password);
                         stmt.setString(4, this.salt);
+                        stmt.setBoolean(4, this.isAdmin);
                     });
         }
     }
@@ -156,7 +169,8 @@ public class User extends ModelBase {
                 rs.getString(2),
                 rs.getString(3),
                 rs.getString(4),
-                rs.getString(5)
+                rs.getString(5),
+                rs.getBoolean(6)
         );
     }
 }

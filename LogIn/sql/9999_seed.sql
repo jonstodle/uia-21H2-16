@@ -1,28 +1,19 @@
 insert into users
-    (id, name, email, password, salt)
+    (id, name, email, password, salt, is_admin)
 values (1, 'Adel', 'adel@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (2, 'Ahmad', 'ahmad@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (3, 'Jon', 'jon@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (4, 'Khalel', 'khalel@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (5, 'Kristoffer', 'kristoffer@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (6, 'Ritwaan', 'ritwaan@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234'),
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true),
        (7, 'Wad', 'wad@example.com',
-        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234');
-
-insert into user_roles (user_id, name)
-values (1, 'admin'),
-       (2, 'admin'),
-       (3, 'admin'),
-       (4, 'admin'),
-       (5, 'admin'),
-       (6, 'admin'),
-       (7, 'admin');
+        'v0AMKhy8LFU2rsQgGIZO21c47Wm/VIigF6GurSH4iK4FoTwvMN4ASkpvpO7euMjWL3lxKk+EiefspAjlezbCUA==', '1234', true);
 
 insert into equipment
     (name, category, price, rent_start_day, comment)

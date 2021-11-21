@@ -48,7 +48,7 @@ public class UsersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         var editParam = req.getParameter("edit");
         if (editParam != null) {
-            var user = new User(0, "", "", "", User.generateSalt());
+            var user = new User(0, "", "", "", User.generateSalt(), false);
 
             if (!editParam.equals("")) {
                 var editId = Integer.parseInt(editParam);
@@ -57,6 +57,9 @@ public class UsersServlet extends HttpServlet {
 
             user.setName(req.getParameter("name"));
             user.setEmail(req.getParameter("email"));
+
+            var isAdmin = req.getParameter("isAdmin");
+            user.setAdmin(isAdmin != null && isAdmin.equals("true"));
 
             var password = req.getParameter("password");
             if (password != null && password.equals("")) {
@@ -92,7 +95,8 @@ public class UsersServlet extends HttpServlet {
                                 split[0],
                                 split[1],
                                 split[2],
-                                User.generateSalt()
+                                User.generateSalt(),
+                                false
                         );
                     })
                     .forEach(User::save);

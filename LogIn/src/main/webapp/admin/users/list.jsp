@@ -18,8 +18,13 @@
         <div class="content">
             <strong>Email</strong>
             <span>
-                    <%=u.getEmail()%>
-                </span>
+                <%=u.getEmail()%>
+            </span>
+
+            <strong>Is admin</strong>
+            <span>
+                <%=u.isAdmin() ? "Yes" : "No"%>
+            </span>
         </div>
         <footer>
             <a href="/amv/admin/users?edit=<%=u.getId()%>" class="button">
