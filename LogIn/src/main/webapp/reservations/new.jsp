@@ -26,6 +26,14 @@
         <input type="submit" value="Reserve">
     </form>
 </main>
+<script>
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+    document.querySelector("[name=from-date]").setAttribute("min", [year, month, day].join("-"))
+    document.querySelector("[name=to-date]").setAttribute("min", [year, month, day].join("-"))
+</script>
 <style>
     #error-banner {
         background-color: darkred;
