@@ -95,5 +95,12 @@
         pageTitle = "AMV - " + pageTitle;
         document.title = pageTitle;
         document.getElementById("page-title").innerText = pageTitle;
+
+        const menuLinks = document.querySelectorAll("div.menu>a.button");
+        for (const el of menuLinks) {
+            if (location.pathname.endsWith(el.getAttribute("href"))) {
+                el.classList.remove("pseudo")
+            }
+        }
     })();
 </script>
