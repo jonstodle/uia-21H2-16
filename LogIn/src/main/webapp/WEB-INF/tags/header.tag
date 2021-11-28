@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AMV</title>
+    <link rel="shortcut icon" type="image/png" href="/amv/favicon.png">
     <link rel="stylesheet" href="/amv/static/picnic.css">
     <style>
         body {
@@ -10,8 +11,14 @@
         }
 
         #page-title {
-            display: inline;
+            display: inline-flex;
             padding: 0;
+            align-items: center;
+            margin-top: .5rem;
+        }
+
+        #page-title > img {
+            height: 2rem;
         }
 
         #page-title > small {
@@ -63,7 +70,8 @@
 <body>
 <nav id="page-nav">
     <h1 id="page-title">
-        AMV
+        <img src="/amv/favicon.png" alt="AMV logo">
+        <small id="page-path"></small>
     </h1>
 
     <input id="bmenub" type="checkbox" class="show">
@@ -104,7 +112,7 @@
         }
 
         document.title = "AMV - " + pageTitle;
-        document.getElementById("page-title").innerHTML = "AMV<small>/" + pageTitle + "</small>";
+        document.getElementById("page-path").innerHTML = "/" + pageTitle;
 
         const menuLinks = document.querySelectorAll("div.menu>a.button");
         for (const el of menuLinks) {
