@@ -14,6 +14,17 @@
             padding: 0;
         }
 
+        #page-title > small {
+            font-size: .5em;
+        }
+
+        nav > .menu > a.button,
+        nav > .menu > span {
+            margin: 0;
+            font-size: .8em;
+            padding: .3em;
+        }
+
         .actions-container {
             display: flex;
             justify-content: flex-end;
@@ -62,11 +73,11 @@
         <a href="/amv/equipment" class="button pseudo">Equipment</a>
         <a href="/amv/reservations" class="button pseudo">Reservations</a>
         <a href="/amv/leases" class="button pseudo">Leases</a>
-        <span>|</span>
-        <a href="/amv/admin/equipment" class="button pseudo">Admin/Equipment</a>
-        <a href="/amv/admin/reservations" class="button pseudo">Admin/Reservations</a>
-        <a href="/amv/admin/settlements" class="button pseudo">Admin/Settlements</a>
-        <a href="/amv/admin/users" class="button pseudo">Admin/Users</a>
+        <span>| Admin:</span>
+        <a href="/amv/admin/equipment" class="button pseudo">Equipment</a>
+        <a href="/amv/admin/reservations" class="button pseudo">Reservations</a>
+        <a href="/amv/admin/settlements" class="button pseudo">Settlements</a>
+        <a href="/amv/admin/users" class="button pseudo">Users</a>
         <span>|</span>
         <a href="/amv/login?logout" class="button pseudo">Log out</a>
     </div>
@@ -92,9 +103,8 @@
             }
         }
 
-        pageTitle = "AMV - " + pageTitle;
-        document.title = pageTitle;
-        document.getElementById("page-title").innerText = pageTitle;
+        document.title = "AMV - " + pageTitle;
+        document.getElementById("page-title").innerHTML = "AMV<small>/" + pageTitle + "</small>";
 
         const menuLinks = document.querySelectorAll("div.menu>a.button");
         for (const el of menuLinks) {
