@@ -90,7 +90,7 @@ public class UsersServlet extends HttpServlet {
                     .lines()
                     .map(l -> {
                         var split = l.split(",");
-                        return new User(
+                        var user = new User(
                                 0,
                                 split[0],
                                 split[1],
@@ -98,6 +98,8 @@ public class UsersServlet extends HttpServlet {
                                 User.generateSalt(),
                                 false
                         );
+                        user.setPassword(split[2]);
+                        return user;
                     })
                     .forEach(User::save);
 
