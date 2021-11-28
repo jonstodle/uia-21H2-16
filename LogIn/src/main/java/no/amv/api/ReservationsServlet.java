@@ -41,7 +41,14 @@ public class ReservationsServlet extends HttpServlet {
             var user = Utils.getUser(req);
             var equipment = Equipment.getById(newId);
 
-            if (toDate.before(fromDate)) {
+            var now = new java.util.Date();
+            now.setHours(0);
+            now.setMinutes(0);
+            now.setSeconds(0);
+            if (fromDate.before(now)) {
+                resp.sendRedirect("/amv/reservations?error=From+date+can+not+be+before+today&new=" + newParam);
+                return;
+            } else if (toDate.before(fromDate)) {
                 resp.sendRedirect("/amv/reservations?error=To+date+must+be+same+day+or+after+from+date&new=" + newParam);
                 return;
             } else if (Duration.between(fromDate.toLocalDate().atStartOfDay(), toDate.toLocalDate().atStartOfDay()).toDays() > equipment.getMaxRentalDays()) {
