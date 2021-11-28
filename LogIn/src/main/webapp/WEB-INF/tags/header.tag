@@ -71,3 +71,29 @@
         <a href="/amv/login?logout" class="button pseudo">Log out</a>
     </div>
 </nav>
+<script>
+    (function () {
+        const paths = [
+            ["admin/equipment", "Admin/Equipment"],
+            ["admin/reservations", "Admin/Reservations"],
+            ["admin/settlements", "Admin/Settlements"],
+            ["admin/users", "Admin/Users"],
+            ["/login", "Login"],
+            ["/equipment", "Equipment"],
+            ["/reservations", "Reservations"],
+            ["/leases", "Leases"],
+        ]
+
+        let pageTitle;
+        for (const [path, title] of paths) {
+            if (location.pathname.toLowerCase().endsWith(path.toLowerCase())) {
+                pageTitle = title;
+                break;
+            }
+        }
+
+        pageTitle = "AMV - " + pageTitle;
+        document.title = pageTitle;
+        document.getElementById("page-title").innerText = pageTitle;
+    })();
+</script>
