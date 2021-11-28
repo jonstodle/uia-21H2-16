@@ -62,7 +62,7 @@ public class UsersServlet extends HttpServlet {
             user.setAdmin(isAdmin != null && isAdmin.equals("true"));
 
             var password = req.getParameter("password");
-            if (password != null && password.equals("")) {
+            if (password != null && !password.equals("")) {
                 user.setPassword(password);
             } else if (user.getPassword().equals("")) {
                 // Generate a random password if user has no password,
