@@ -14,7 +14,7 @@ public class Equipment extends ModelBase {
     String comment;
 
     static String[] categoryNames = new String[]{
-            "diverse «småutstyr»",
+            "Diverse «småutstyr»",
             "Spikerpistoler o.l",
             "Utstyr for vedhogst:",
             "Tilhengere",

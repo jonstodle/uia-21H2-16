@@ -113,7 +113,7 @@ public class User extends ModelBase {
                         stmt.setString(2, this.email);
                         stmt.setString(3, this.password);
                         stmt.setString(4, this.salt);
-                        stmt.setBoolean(4, this.isAdmin);
+                        stmt.setBoolean(5, this.isAdmin);
                     });
         }
     }
@@ -173,7 +173,7 @@ public class User extends ModelBase {
         var bytes = new byte[16];
         var secureRandom = new SecureRandom();
         secureRandom.nextBytes(bytes);
-        return new String(bytes);
+        return Base64.getEncoder().encodeToString(bytes);
     }
 
     private static User from(ResultSet rs) throws SQLException {

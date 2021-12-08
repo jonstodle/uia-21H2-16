@@ -38,7 +38,7 @@
                    value="<%=getEquipment(request) != null ? getEquipment(request).getRentStartDay() : ""%>" required>
         </label>
         <label>
-            Rent start on day:
+            max-rental-days:
             <input type="number" name="max-rental-days"
                    value="<%=getEquipment(request) != null ? getEquipment(request).getMaxRentalDays() : ""%>" required>
         </label>

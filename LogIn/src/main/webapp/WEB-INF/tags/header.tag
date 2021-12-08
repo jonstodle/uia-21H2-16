@@ -2,12 +2,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AMV</title>
+    <title>AMV | Utlån</title>
     <link rel="shortcut icon" type="image/png" href="/amv/favicon.png">
     <link rel="stylesheet" href="/amv/static/picnic.css">
     <style>
         body {
             padding-top: 4rem;
+            background-color: #FEE;
+        }
+
+        nav {
+            box-shadow: 0 0 0.2em #111;
+            background-color: #F0B324;
         }
 
         #page-title {
@@ -68,7 +74,7 @@
     </style>
 </head>
 <body>
-<nav id="page-nav">
+<nav id="page-nav" style="background-color: #F0B324">
     <h1 id="page-title">
         <img src="/amv/favicon.png" alt="AMV logo">
         <small id="page-path"></small>
@@ -81,12 +87,12 @@
         <a href="/amv/equipment" class="button pseudo">Equipment</a>
         <a href="/amv/reservations" class="button pseudo">Reservations</a>
         <a href="/amv/leases" class="button pseudo">Leases</a>
-        <span>| Admin:</span>
-        <a href="/amv/admin/equipment" class="button pseudo">Equipment</a>
-        <a href="/amv/admin/reservations" class="button pseudo">Reservations</a>
-        <a href="/amv/admin/settlements" class="button pseudo">Settlements</a>
-        <a href="/amv/admin/users" class="button pseudo">Users</a>
-        <span>|</span>
+            <span>| Admin:</span>
+            <a href="/amv/admin/equipment" class="button pseudo">Equipment</a>
+            <a href="/amv/admin/reservations" class="button pseudo">Reservations</a>
+            <a href="/amv/admin/settlements" class="button pseudo">Settlements</a>
+            <a href="/amv/admin/users" class="button pseudo">Users</a>
+            <span>|</span>
         <a href="/amv/login?logout" class="button pseudo">Log out</a>
     </div>
 </nav>
