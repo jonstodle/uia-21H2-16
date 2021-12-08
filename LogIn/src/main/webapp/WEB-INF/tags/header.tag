@@ -8,7 +8,7 @@
     <style>
         body {
             padding-top: 4rem;
-            background-color: #FEE;
+            background-color: #EEE;
         }
 
         nav {
@@ -38,14 +38,38 @@
             padding: .3em;
         }
 
-        .actions-container {
+        #main-content {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 200px 1fr;
+            align-items: start;
+            justify-items: stretch;
+        }
+
+        @media (max-width: 600px) {
+            #main-content {
+                grid-template-columns: 1fr;
+                gap: .5rem;
+            }
+        }
+
+        #main-content > *:first-child {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: stretch;
             gap: .5rem;
         }
 
-        .list > .card {
+        #main-content > *:nth-child(2) {
+            margin: 0 auto;
+            width: 100%;
             max-width: 800px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
         }
 
         .list > .card header {
@@ -87,12 +111,12 @@
         <a href="/amv/equipment" class="button pseudo">Equipment</a>
         <a href="/amv/reservations" class="button pseudo">Reservations</a>
         <a href="/amv/leases" class="button pseudo">Leases</a>
-            <span>| Admin:</span>
-            <a href="/amv/admin/equipment" class="button pseudo">Equipment</a>
-            <a href="/amv/admin/reservations" class="button pseudo">Reservations</a>
-            <a href="/amv/admin/settlements" class="button pseudo">Settlements</a>
-            <a href="/amv/admin/users" class="button pseudo">Users</a>
-            <span>|</span>
+        <span>| Admin:</span>
+        <a href="/amv/admin/equipment" class="button pseudo">Equipment</a>
+        <a href="/amv/admin/reservations" class="button pseudo">Reservations</a>
+        <a href="/amv/admin/settlements" class="button pseudo">Settlements</a>
+        <a href="/amv/admin/users" class="button pseudo">Users</a>
+        <span>|</span>
         <a href="/amv/login?logout" class="button pseudo">Log out</a>
     </div>
 </nav>
@@ -128,3 +152,4 @@
         }
     })();
 </script>
+<main id="main-content">

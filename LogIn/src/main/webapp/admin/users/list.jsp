@@ -7,7 +7,7 @@
     <a href="/amv/admin/users?edit" class="button">Add user</a>
     <a href="/amv/admin/users?import" class="button">Import users</a>
 </aside>
-<main class="list">
+<section class="list">
     <%for (User u : (ArrayList<User>) request.getAttribute("users")) { %>
     <article class="card">
         <header>
@@ -36,7 +36,7 @@
         </footer>
     </article>
     <%}%>
-</main>
+</section>
 <style>
     .actions-container {
         margin-bottom: 2rem;

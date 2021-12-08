@@ -7,14 +7,17 @@
     }
 %>
 <t:header/>
-<h1>Delete <%=getEquipment(request).getName()%>?</h1>
-<form action="/amv/admin/equipment?delete=<%=getEquipment(request).getId()%>" method="POST">
-    <input type="submit" class="error" value="Yes">
-    <button id="no-button">No</button>
-</form>
-<script>
-    document
-        .getElementById("no-button")
-        .addEventListener("click", () => history.back())
-</script>
+<aside></aside>
+<section>
+    <h1>Delete <%=getEquipment(request).getName()%>?</h1>
+    <form action="/amv/admin/equipment?delete=<%=getEquipment(request).getId()%>" method="POST">
+        <input type="submit" class="error" value="Yes">
+        <button id="no-button">No</button>
+    </form>
+    <script>
+        document
+            .getElementById("no-button")
+            .addEventListener("click", () => history.back())
+    </script>
+</section>
 <t:footer/>

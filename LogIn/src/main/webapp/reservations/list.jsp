@@ -3,7 +3,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:header/>
-<main class="list">
+<aside></aside>
+<section class="list">
     <%for (UserReservation ur : (ArrayList<UserReservation>) request.getAttribute("reservations")) { %>
     <article class="card">
         <header>
@@ -34,7 +35,7 @@
         </footer>
     </article>
     <%}%>
-</main>
+</section>
 <style>
     form {
         margin: 0;

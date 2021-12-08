@@ -5,7 +5,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:header/>
-<main class="list">
+<aside></aside>
+<section class="list">
     <%for (User u : (ArrayList<User>) request.getAttribute("users")) { %>
     <article class="card">
         <header>
@@ -34,7 +35,7 @@
         </div>
     </article>
     <%}%>
-</main>
+</section>
 <style>
     .list > .card .content.settlement {
         grid-template-columns: auto 1fr auto;

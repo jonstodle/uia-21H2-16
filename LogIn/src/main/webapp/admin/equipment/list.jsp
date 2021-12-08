@@ -6,7 +6,7 @@
 <aside class="actions-container">
     <a href="/amv/admin/equipment?edit" class="button">Add equipment</a>
 </aside>
-<main class="list">
+<section class="list">
     <%for (Equipment e : (ArrayList<Equipment>) request.getAttribute("equipment")) { %>
     <article class="card">
         <header>
@@ -57,7 +57,7 @@
         </footer>
     </article>
     <%}%>
-</main>
+</section>
 <style>
     .actions-container {
         margin-bottom: 2rem;

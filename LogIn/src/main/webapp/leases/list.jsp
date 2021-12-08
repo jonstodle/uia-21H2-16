@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:header/>
-<aside class="actions-container">
+<aside>
     <a href="/amv/leases?upload" class="button">Upload</a>
 </aside>
 <main class="list">
@@ -25,9 +25,4 @@
     </article>
     <%}%>
 </main>
-<style>
-    .actions-container {
-        margin-bottom: 2rem;
-    }
-</style>
 <t:footer/>

@@ -7,7 +7,8 @@
     }
 %>
 <t:header/>
-<main>
+<aside></aside>
+<section>
     <h1>Reserve <%=getEquipment(request).getName()%>?</h1>
     <%if (request.getParameter("error") != null) {%>
     <article id="error-banner" class="card">
@@ -26,14 +27,14 @@
         </label>
         <input type="submit" value="Reserve">
     </form>
-</main>
+</section>
 <script>
     const now = new Date();
     const year = now.getFullYear();
     let month = now.getMonth() + 1;
-    month = month.toString().length===1?"0" + month:month;
+    month = month.toString().length === 1 ? "0" + month : month;
     let day = now.getDate();
-    day = day.toString().length===1?"0" + day:day;
+    day = day.toString().length === 1 ? "0" + day : day;
     document.querySelector("[name=from-date]").setAttribute("min", [year, month, day].join("-"))
     document.querySelector("[name=to-date]").setAttribute("min", [year, month, day].join("-"))
 </script>

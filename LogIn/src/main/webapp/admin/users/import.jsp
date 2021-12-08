@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:header/>
-<main>
+<aside></aside>
+<section>
     <h1>Upload lease</h1>
     <p>
         File must be in the following format:
@@ -13,5 +14,5 @@
         </label>
         <input type="submit" value="Import">
     </form>
-</main>
+</section>
 <t:footer/>
